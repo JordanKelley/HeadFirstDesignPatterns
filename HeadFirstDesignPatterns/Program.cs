@@ -2,6 +2,7 @@
 using HeadFirstDesignPatterns.StrategyPattern;
 using HeadFirstDesignPatterns.ObserverPattern;
 using HeadFirstDesignPatterns.DecoratorPattern;
+using HeadFirstDesignPatterns.FactoryPattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -9,24 +10,32 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            // strategy pattern
-            //Duck mallard = new MallardDuck();
-            //mallard.performQuack();
-            //mallard.performFly();
+            FactoryPattern();
+        }
 
-            // observer pattern
-            //WeatherData weatherData = new WeatherData();
+        private static void StrategyPattern()
+        {
+            Duck mallard = new MallardDuck();
+            mallard.performQuack();
+            mallard.performFly();
+        }
 
-            //CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
-            //StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
-            //ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
-            //HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
+        private static void ObserverPattern()
+        {
+            WeatherData weatherData = new WeatherData();
 
-            //weatherData.setMeasurements(80, 65, 30.4f);
-            //weatherData.setMeasurements(82, 70, 29.2f);
-            //weatherData.setMeasurements(78, 90, 29.2f);
+            CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
+            StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
+            ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+            HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
 
-            // decorator pattern
+            weatherData.setMeasurements(80, 65, 30.4f);
+            weatherData.setMeasurements(82, 70, 29.2f);
+            weatherData.setMeasurements(78, 90, 29.2f);
+        }
+
+        private static void DecoratorPattern()
+        {
             Beverage beverage = new Espresso();
             Console.WriteLine(beverage.getDescription() + " $" + beverage.cost());
 
@@ -41,6 +50,15 @@ namespace HeadFirstDesignPatterns
             beverage3 = new Mocha(beverage3);
             beverage3 = new Whip(beverage3);
             Console.WriteLine(beverage3.getDescription() + " $" + beverage3.cost());
+        }
+
+        private static void FactoryPattern()
+        {
+            PizzaStore nyPizzaStore = new NYPizzaStore();
+            nyPizzaStore.orderPizza("cheese");
+
+            PizzaStore chiPizzaStore = new ChicagoPizzaStore();
+            chiPizzaStore.orderPizza("cheese");
         }
     }
 }
