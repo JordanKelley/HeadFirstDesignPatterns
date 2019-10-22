@@ -3,6 +3,7 @@ using HeadFirstDesignPatterns.StrategyPattern;
 using HeadFirstDesignPatterns.ObserverPattern;
 using HeadFirstDesignPatterns.DecoratorPattern;
 using HeadFirstDesignPatterns.FactoryPattern;
+using HeadFirstDesignPatterns.SingletonPattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -10,7 +11,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            FactoryPattern();
+            SingletonPattern();
         }
 
         private static void StrategyPattern()
@@ -59,6 +60,15 @@ namespace HeadFirstDesignPatterns
 
             PizzaStore chiPizzaStore = new ChicagoPizzaStore();
             chiPizzaStore.orderPizza("cheese");
+        } 
+
+        private static void SingletonPattern()
+        {
+            SingletonClassic singletonClassic = SingletonClassic.getInstance();
+            Console.WriteLine(singletonClassic.getDescription());
+
+            SingletonThreadSafe singletonThreadSafe = SingletonThreadSafe.getInstance();
+            Console.WriteLine(singletonThreadSafe.getDescription());
         }
     }
 }
