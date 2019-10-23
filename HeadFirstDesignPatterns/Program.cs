@@ -4,6 +4,7 @@ using HeadFirstDesignPatterns.ObserverPattern;
 using HeadFirstDesignPatterns.DecoratorPattern;
 using HeadFirstDesignPatterns.FactoryPattern;
 using HeadFirstDesignPatterns.SingletonPattern;
+using HeadFirstDesignPatterns.CommandPattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -11,7 +12,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            SingletonPattern();
+            SimpleCommandPattern();
         }
 
         private static void StrategyPattern()
@@ -69,6 +70,16 @@ namespace HeadFirstDesignPatterns
 
             SingletonThreadSafe singletonThreadSafe = SingletonThreadSafe.getInstance();
             Console.WriteLine(singletonThreadSafe.getDescription());
+        }
+
+        private static void SimpleCommandPattern()
+        {
+            SimpleRemoteControl remote = new SimpleRemoteControl();
+            Light light = new Light();
+            LightOnCommand lightOnCommand = new LightOnCommand(light);
+
+            remote.setCommand(lightOnCommand);
+            remote.buttonWasPressed();
         }
     }
 }
