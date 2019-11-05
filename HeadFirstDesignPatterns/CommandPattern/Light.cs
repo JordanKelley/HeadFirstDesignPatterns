@@ -6,19 +6,20 @@ namespace HeadFirstDesignPatterns.CommandPattern
 {
     public class Light
     {
-        public Light()
+        private string location;
+        public Light(string location)
         {
-
+            this.location = location;
         }
 
         public void on()
         {
-            Console.WriteLine("Light is on");
+            Console.WriteLine(location + " light is on");
         }
 
         public void off()
         {
-            Console.WriteLine("Light is off");
+            Console.WriteLine(location + " light is off");
         }
     }
 }

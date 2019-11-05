@@ -6,31 +6,35 @@ namespace HeadFirstDesignPatterns.CommandPattern
 {
     public class GarageDoor
     {
-        public GarageDoor() { }
+        private string location;
+        public GarageDoor(string location) 
+        {
+            this.location = location;
+        }
 
         public void up()
         {
-            Console.WriteLine("Garage Door is open");
+            Console.WriteLine(location + "Garage Door is open");
         }
 
         public void down()
         {
-            Console.WriteLine("Garage Door is closed");
+            Console.WriteLine(location + "Garage Door is closed");
         }
 
         public void stop()
         {
-            Console.WriteLine("Garage Door is stopped");
+            Console.WriteLine(location + "Garage Door is stopped");
         }
 
         public void lightOn()
         {
-            Console.WriteLine("Garage light is on");
+            Console.WriteLine(location + "Garage light is on");
         }
 
         public void lightOff()
         {
-            Console.WriteLine("Garage light is off");
+            Console.WriteLine(location + "Garage light is off");
         }
     }
 }

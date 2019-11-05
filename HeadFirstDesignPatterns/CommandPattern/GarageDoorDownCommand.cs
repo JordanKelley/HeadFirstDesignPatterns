@@ -4,18 +4,18 @@ using System.Text;
 
 namespace HeadFirstDesignPatterns.CommandPattern
 {
-    public class GarageDoorOpenCommand : Command
+    public class GarageDoorDownCommand : Command
     {
         private GarageDoor garageDoor;
 
-        public GarageDoorOpenCommand(GarageDoor garageDoor)
+        public GarageDoorDownCommand(GarageDoor garageDoor)
         {
             this.garageDoor = garageDoor;
         }
 
         public void execute()
         {
-            garageDoor.up();
+            garageDoor.down();
         }
     }
 }

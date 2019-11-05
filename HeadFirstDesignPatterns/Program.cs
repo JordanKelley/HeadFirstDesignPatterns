@@ -72,14 +72,34 @@ namespace HeadFirstDesignPatterns
             Console.WriteLine(singletonThreadSafe.getDescription());
         }
 
-        private static void SimpleCommandPattern()
+        private static void CommandPattern()
         {
-            SimpleRemoteControl remote = new SimpleRemoteControl();
-            Light light = new Light();
-            LightOnCommand lightOnCommand = new LightOnCommand(light);
+            RemoteControl remoteControl = new RemoteControl();
 
-            remote.setCommand(lightOnCommand);
-            remote.buttonWasPressed();
+            // device creation
+            Light livingRoomLight = new Light("Living Room");
+            Light kitchenLight = new Light("Kitchen");
+            CeilingFan ceilingFan = new CeilingFan("Living Room");
+            GarageDoor garageDoor = new GarageDoor("");
+            Stereo stereo = new Stereo("Living Room");
+
+            // light command objects
+            LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
+            LightOffCommand livingRoomLightOff = new LightOffCommand(livingRoomLight);
+            LightOnCommand kitchenLightOn = new LightOnCommand(kitchenLight);
+            LightOffCommand kitchenLightOff = new LightOffCommand(kitchenLight);
+
+            // ceiling fan command objects
+            CeilingFanOnCommand ceilingFanOn = new CeilingFanOnCommand(ceilingFan);
+            CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+
+            // garage door command objects
+            GarageDoorUpCommand garageDoorUp = new GarageDoorUpCommand(garageDoor);
+            GarageDoorDownCommand garageDoorDown = new GarageDoorDownCommand(garageDoor);
+
+            // stereo command objects
+            StereoOnWithCDCommand stereoOnWithCD = new StereoOnWithCDCommand(stereo);
+            StereoOffCommand stereoOff = new StereoOffCommand(stereo);
         }
     }
 }
