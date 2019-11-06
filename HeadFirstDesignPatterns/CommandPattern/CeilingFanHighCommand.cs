@@ -4,12 +4,12 @@ using System.Text;
 
 namespace HeadFirstDesignPatterns.CommandPattern
 {
-    public class CeilingFanOffCommand : Command
+    public class CeilingFanHighCommand : Command
     {
         private CeilingFan ceilingFan;
         private int prevSpeed;
 
-        public CeilingFanOffCommand(CeilingFan ceilingFan)
+        public CeilingFanHighCommand(CeilingFan ceilingFan)
         {
             this.ceilingFan = ceilingFan;
         }
@@ -17,24 +17,24 @@ namespace HeadFirstDesignPatterns.CommandPattern
         public void execute()
         {
             prevSpeed = ceilingFan.getSpeed();
-            ceilingFan.off();
+            ceilingFan.high();
         }
 
         public void undo()
         {
-            if (prevSpeed == CeilingFan.HIGH)
+            if(prevSpeed == CeilingFan.HIGH)
             {
                 ceilingFan.high();
             }
-            else if (prevSpeed == CeilingFan.MEDIUM)
+            else if(prevSpeed == CeilingFan.MEDIUM)
             {
                 ceilingFan.medium();
             }
-            else if (prevSpeed == CeilingFan.LOW)
+            else if(prevSpeed == CeilingFan.LOW)
             {
                 ceilingFan.low();
             }
-            else if (prevSpeed == CeilingFan.OFF)
+            else if(prevSpeed == CeilingFan.OFF)
             {
                 ceilingFan.off();
             }

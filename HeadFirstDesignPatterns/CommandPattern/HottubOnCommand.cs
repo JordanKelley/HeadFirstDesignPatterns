@@ -4,23 +4,23 @@ using System.Text;
 
 namespace HeadFirstDesignPatterns.CommandPattern
 {
-    public class StereoOffCommand : Command
+    public class HottubOnCommand : Command
     {
-        private Stereo stereo;
+        private Hottub hottub;
 
-        public StereoOffCommand(Stereo stereo)
+        public HottubOnCommand(Hottub hottub)
         {
-            this.stereo = stereo;
+            this.hottub = hottub;
         }
 
         public void execute()
         {
-            stereo.off();
+            hottub.on();
         }
 
         public void undo()
         {
-            stereo.on();
+            hottub.off();
         }
     }
 }

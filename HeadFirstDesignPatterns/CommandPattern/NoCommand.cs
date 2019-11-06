@@ -10,5 +10,10 @@ namespace HeadFirstDesignPatterns.CommandPattern
         {
             // do nothing
         }
+
+        public void undo()
+        {
+            // do nothing
+        }
     }
 }

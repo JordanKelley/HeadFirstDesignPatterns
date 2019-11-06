@@ -4,12 +4,13 @@ using System.Text;
 
 namespace HeadFirstDesignPatterns.CommandPattern
 {
-    public class RemoteControl
+    public class RemoteControlWithUndo
     {
         private Command[] onCommands;
         private Command[] offCommands;
+        private Command undoCommand;
 
-        public RemoteControl()
+        public RemoteControlWithUndo()
         {
             onCommands = new Command[7];
             offCommands = new Command[7];
@@ -21,6 +22,7 @@ namespace HeadFirstDesignPatterns.CommandPattern
                 onCommands[i] = noCommand;
                 offCommands[i] = noCommand;
             }
+            undoCommand = noCommand;
         }
 
         public void setCommand(int slot, Command onCommand, Command offCommand)
@@ -32,11 +34,18 @@ namespace HeadFirstDesignPatterns.CommandPattern
         public void onButtonWasPushed(int slot)
         {
             onCommands[slot].execute();
+            undoCommand = onCommands[slot];
         }
 
-        public void offButton(int slot)
+        public void offButtonWasPushed(int slot)
         {
             offCommands[slot].execute();
+            undoCommand = offCommands[slot];
+        }
+
+        public void undoButtonWasPushed()
+        {
+            undoCommand.undo();
         }
 
         public override string ToString()

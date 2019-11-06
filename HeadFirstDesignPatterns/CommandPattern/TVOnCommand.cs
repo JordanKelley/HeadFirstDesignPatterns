@@ -4,23 +4,23 @@ using System.Text;
 
 namespace HeadFirstDesignPatterns.CommandPattern
 {
-    public class StereoOffCommand : Command
+    public class TVOnCommand : Command
     {
-        private Stereo stereo;
+        private TV tv; 
 
-        public StereoOffCommand(Stereo stereo)
+        public TVOnCommand(TV tv)
         {
-            this.stereo = stereo;
+            this.tv = tv;
         }
 
         public void execute()
         {
-            stereo.off();
+            tv.on();
         }
 
         public void undo()
         {
-            stereo.on();
+            tv.off();
         }
     }
 }

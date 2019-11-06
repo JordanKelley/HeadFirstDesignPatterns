@@ -17,5 +17,10 @@ namespace HeadFirstDesignPatterns.CommandPattern
         {
             garageDoor.up();
         }
+
+        public void undo()
+        {
+            garageDoor.down();
+        }
     }
 }

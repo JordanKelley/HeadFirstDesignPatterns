@@ -7,10 +7,11 @@ namespace HeadFirstDesignPatterns.CommandPattern
     public class CeilingFan
     {
         private string location = "";
-        private int level;
-        public static readonly int HIGH = 2;
-        public static readonly int MEDIUM = 1;
-        public static readonly int LOW = 0;
+        private int speed;
+        public static readonly int HIGH = 3;
+        public static readonly int MEDIUM = 2;
+        public static readonly int LOW = 1;
+        public static readonly int OFF = 0;
 
         public CeilingFan(string location)
         {
@@ -19,31 +20,31 @@ namespace HeadFirstDesignPatterns.CommandPattern
 
         public void high()
         {
-            level = HIGH;
+            speed = HIGH;
             Console.WriteLine(location + " celing fan is on high");
         }
 
         public void medium()
         {
-            level = MEDIUM;
+            speed = MEDIUM;
             Console.WriteLine(location + " celing fan is on medium");
         }
 
         public void low()
         {
-            level = LOW;
+            speed = LOW;
             Console.WriteLine(location + " ceiling fan is on low");
         }
 
         public void off()
         {
-            level = 0;
+            speed = OFF;
             Console.WriteLine(location + " ceiling fan is off");
         }
 
         public int getSpeed()
         {
-            return level;
+            return speed;
         }
     }
 }

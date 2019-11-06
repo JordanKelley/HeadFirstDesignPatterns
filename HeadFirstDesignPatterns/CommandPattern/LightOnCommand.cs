@@ -17,5 +17,10 @@ namespace HeadFirstDesignPatterns.CommandPattern
         {
             light.on();
         }
+
+        public void undo()
+        {
+            light.off();
+        }
     }
 }

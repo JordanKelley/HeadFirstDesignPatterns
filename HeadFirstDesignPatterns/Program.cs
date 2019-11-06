@@ -12,7 +12,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            SimpleCommandPattern();
+            CommandPattern();
         }
 
         private static void StrategyPattern()
@@ -74,32 +74,36 @@ namespace HeadFirstDesignPatterns
 
         private static void CommandPattern()
         {
-            RemoteControl remoteControl = new RemoteControl();
+            RemoteControlWithUndo remoteControl = new RemoteControlWithUndo();
 
-            // device creation
-            Light livingRoomLight = new Light("Living Room");
-            Light kitchenLight = new Light("Kitchen");
-            CeilingFan ceilingFan = new CeilingFan("Living Room");
-            GarageDoor garageDoor = new GarageDoor("");
+            Light light = new Light("Living Room");
+            TV tv = new TV("Living Room");
             Stereo stereo = new Stereo("Living Room");
+            Hottub hottub = new Hottub();
 
-            // light command objects
-            LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
-            LightOffCommand livingRoomLightOff = new LightOffCommand(livingRoomLight);
-            LightOnCommand kitchenLightOn = new LightOnCommand(kitchenLight);
-            LightOffCommand kitchenLightOff = new LightOffCommand(kitchenLight);
+            LightOnCommand lightOn = new LightOnCommand(light);
+            StereoOnCommand stereoOn = new StereoOnCommand(stereo);
+            TVOnCommand tvOn = new TVOnCommand(tv);
+            HottubOnCommand hottubOn = new HottubOnCommand(hottub);
 
-            // ceiling fan command objects
-            CeilingFanOnCommand ceilingFanOn = new CeilingFanOnCommand(ceilingFan);
-            CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
-
-            // garage door command objects
-            GarageDoorUpCommand garageDoorUp = new GarageDoorUpCommand(garageDoor);
-            GarageDoorDownCommand garageDoorDown = new GarageDoorDownCommand(garageDoor);
-
-            // stereo command objects
-            StereoOnWithCDCommand stereoOnWithCD = new StereoOnWithCDCommand(stereo);
+            LightOffCommand lightOff = new LightOffCommand(light);
             StereoOffCommand stereoOff = new StereoOffCommand(stereo);
+            TVOffCommand tvOff = new TVOffCommand(tv);
+            HottubOffCommand hottubOff = new HottubOffCommand(hottub);
+
+            Command[] partyOn = { lightOn, stereoOn, tvOn, hottubOn };
+            Command[] partyOff = { lightOff, stereoOff, tvOff, hottubOff };
+
+            MacroCommand partyOnMacro = new MacroCommand(partyOn);
+            MacroCommand partyOffMacro = new MacroCommand(partyOff);
+
+            remoteControl.setCommand(0, partyOnMacro, partyOffMacro);
+
+            Console.WriteLine(remoteControl);
+            Console.WriteLine("--- Pushing Macro On ---");
+            remoteControl.onButtonWasPushed(0);
+            Console.WriteLine("--- Pushing Macro Off ---");
+            remoteControl.offButtonWasPushed(0);
         }
     }
 }
