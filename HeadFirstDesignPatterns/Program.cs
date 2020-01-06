@@ -5,6 +5,7 @@ using HeadFirstDesignPatterns.DecoratorPattern;
 using HeadFirstDesignPatterns.FactoryPattern;
 using HeadFirstDesignPatterns.SingletonPattern;
 using HeadFirstDesignPatterns.CommandPattern;
+using HeadFirstDesignPatterns.AdapterPattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -12,12 +13,12 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            CommandPattern();
+            AdapterPattern();
         }
 
         private static void StrategyPattern()
         {
-            Duck mallard = new MallardDuck();
+            StrategyPattern.Duck mallard = new StrategyPattern.MallardDuck();
             mallard.performQuack();
             mallard.performFly();
         }
@@ -104,6 +105,30 @@ namespace HeadFirstDesignPatterns
             remoteControl.onButtonWasPushed(0);
             Console.WriteLine("--- Pushing Macro Off ---");
             remoteControl.offButtonWasPushed(0);
+        }
+
+        private static void AdapterPattern()
+        {
+            AdapterPattern.MallardDuck duck = new AdapterPattern.MallardDuck();
+
+            WildTurkey turkey = new WildTurkey();
+            AdapterPattern.Duck turkeyAdapter = new TurkeyAdapter(turkey);
+
+            Console.WriteLine("The Turkey says...");
+            turkey.gobble();
+            turkey.fly();
+
+            Console.WriteLine("\nThe Duck says...");
+            testDuck(duck);
+
+            Console.WriteLine("\nThe TurkeyAdapter says...");
+            testDuck(turkeyAdapter);
+        }
+
+        private static void testDuck(AdapterPattern.Duck duck)
+        {
+            duck.quack();
+            duck.fly();
         }
     }
 }
