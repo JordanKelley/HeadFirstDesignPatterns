@@ -6,6 +6,7 @@ using HeadFirstDesignPatterns.FactoryPattern;
 using HeadFirstDesignPatterns.SingletonPattern;
 using HeadFirstDesignPatterns.CommandPattern;
 using HeadFirstDesignPatterns.AdapterPattern;
+using HeadFirstDesignPatterns.FacadePattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -13,7 +14,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            AdapterPattern();
+            FacadePattern();
         }
 
         private static void StrategyPattern()
@@ -129,6 +130,23 @@ namespace HeadFirstDesignPatterns
         {
             duck.quack();
             duck.fly();
+        }
+
+        private static void FacadePattern()
+        {
+            Amplifier amp = new Amplifier("amplifier");
+            Tuner tuner = new Tuner("tuner", amp);
+            DvdPlayer dvd = new DvdPlayer("Dvd Player", amp);
+            CdPlayer cd = new CdPlayer("CD Player", amp);
+            Projector projector = new Projector("Projector", dvd);
+            Screen screen = new Screen("Screen");
+            TheaterLights lights = new TheaterLights("Theater lights");
+            PopcornPopper popper = new PopcornPopper("Popcorn popper");
+
+            HomeTheaterFacade homeTheater = new HomeTheaterFacade(amp, tuner, dvd, cd, projector, screen, lights, popper);
+
+            homeTheater.watchMovie("Raiders of the Lost Ark");
+            homeTheater.endMovie();
         }
     }
 }
