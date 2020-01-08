@@ -7,6 +7,7 @@ using HeadFirstDesignPatterns.SingletonPattern;
 using HeadFirstDesignPatterns.CommandPattern;
 using HeadFirstDesignPatterns.AdapterPattern;
 using HeadFirstDesignPatterns.FacadePattern;
+using HeadFirstDesignPatterns.TemplatePattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -14,7 +15,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            FacadePattern();
+            TemplatePattern();
         }
 
         private static void StrategyPattern()
@@ -147,6 +148,17 @@ namespace HeadFirstDesignPatterns
 
             homeTheater.watchMovie("Raiders of the Lost Ark");
             homeTheater.endMovie();
+        }
+
+        private static void TemplatePattern()
+        {
+            Tea tea = new Tea();
+            Console.WriteLine("Preparing Tea");
+            tea.prepareRecipe();
+
+            Coffee coffee = new Coffee();
+            Console.WriteLine("Preparing Coffee");
+            coffee.prepareRecipe();
         }
     }
 }
