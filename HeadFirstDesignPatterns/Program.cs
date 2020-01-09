@@ -15,7 +15,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            TemplatePattern();
+            DuckSortTestDrive();
         }
 
         private static void StrategyPattern()
@@ -159,6 +159,35 @@ namespace HeadFirstDesignPatterns
             Coffee coffee = new Coffee();
             Console.WriteLine("Preparing Coffee");
             coffee.prepareRecipe();
+        }
+
+        private static void DuckSortTestDrive()
+        {
+            TemplatePattern.Duck[] ducks =
+            {
+                new TemplatePattern.Duck("Daffy", 8),
+                new TemplatePattern.Duck("Dewey", 2),
+                new TemplatePattern.Duck("Howard", 7),
+                new TemplatePattern.Duck("Louie", 2),
+                new TemplatePattern.Duck("Donald", 10),
+                new TemplatePattern.Duck("Huey", 2)
+            };
+
+            Console.WriteLine("Before sorting:");
+            Display(ducks);
+
+            Array.Sort(ducks);
+
+            Console.WriteLine("\nAfter sorting:");
+            Display(ducks);
+        }
+
+        private static void Display(TemplatePattern.Duck[] ducks)
+        {
+            for(int i = 0; i < ducks.Length; i++)
+            {
+                Console.WriteLine(ducks[i]);
+            }
         }
     }
 }
