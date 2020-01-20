@@ -19,4 +19,3 @@ C:\Users\JMKELL\Documents\Repositories\HeadFirstDesigns\HeadFirstDesignPatterns\
 C:\Users\JMKELL\Documents\Repositories\HeadFirstDesigns\HeadFirstDesignPatterns\obj\Debug\netcoreapp3.0\HeadFirstDesignPatterns.AssemblyInfo.cs
 C:\Users\JMKELL\Documents\Repositories\HeadFirstDesigns\HeadFirstDesignPatterns\obj\Debug\netcoreapp3.0\HeadFirstDesignPatterns.dll
 C:\Users\JMKELL\Documents\Repositories\HeadFirstDesigns\HeadFirstDesignPatterns\obj\Debug\netcoreapp3.0\HeadFirstDesignPatterns.pdb
-C:\Users\JMKELL\Documents\Repositories\HeadFirstDesigns\HeadFirstDesignPatterns\obj\Debug\netcoreapp3.0\HeadFirstDesignPatterns.csprojAssemblyReference.cache

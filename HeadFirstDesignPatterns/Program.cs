@@ -8,6 +8,7 @@ using HeadFirstDesignPatterns.CommandPattern;
 using HeadFirstDesignPatterns.AdapterPattern;
 using HeadFirstDesignPatterns.FacadePattern;
 using HeadFirstDesignPatterns.TemplatePattern;
+using HeadFirstDesignPatterns.IteratorPattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -15,7 +16,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            DuckSortTestDrive();
+            IteratorPattern();
         }
 
         private static void StrategyPattern()
@@ -188,6 +189,16 @@ namespace HeadFirstDesignPatterns
             {
                 Console.WriteLine(ducks[i]);
             }
+        }
+
+        private static void IteratorPattern()
+        {
+            PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+            DinerMenu dinerMenu = new DinerMenu();
+
+            Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+
+            waitress.printMenu();
         }
     }
 }
