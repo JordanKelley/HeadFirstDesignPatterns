@@ -2,7 +2,7 @@
 
 namespace HeadFirstDesignPatterns.IteratorPattern
 {
-    public class PancakeHouseMenu
+    public class PancakeHouseMenu : Menu
     {
         List<MenuItem> menuItems;
 

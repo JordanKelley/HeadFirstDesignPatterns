@@ -2,7 +2,7 @@
 
 namespace HeadFirstDesignPatterns.IteratorPattern
 {
-    public class DinerMenu
+    public class DinerMenu : Menu
     {
         static readonly int MAX_ITEMS = 6;
         int numberOfItems = 0;
