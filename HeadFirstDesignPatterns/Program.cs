@@ -11,6 +11,7 @@ using HeadFirstDesignPatterns.TemplatePattern;
 using HeadFirstDesignPatterns.IteratorPattern;
 using HeadFirstDesignPatterns.CompositePattern;
 using HeadFirstDesignPatterns.StatePattern;
+using HeadFirstDesignPatterns.ProxyPattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -18,7 +19,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            StatePattern();
+            ProxyPattern();
         }
 
         private static void StrategyPattern()
@@ -67,7 +68,7 @@ namespace HeadFirstDesignPatterns
 
             PizzaStore chiPizzaStore = new ChicagoPizzaStore();
             chiPizzaStore.orderPizza("cheese");
-        } 
+        }
 
         private static void SingletonPattern()
         {
@@ -187,7 +188,7 @@ namespace HeadFirstDesignPatterns
 
         private static void Display(TemplatePattern.Duck[] ducks)
         {
-            for(int i = 0; i < ducks.Length; i++)
+            for (int i = 0; i < ducks.Length; i++)
             {
                 Console.WriteLine(ducks[i]);
             }
@@ -340,6 +341,18 @@ namespace HeadFirstDesignPatterns
             gumballMachine.turnCrank();
 
             Console.WriteLine(gumballMachine);
+        }
+
+        private static void ProxyPattern()
+        {
+            // create math proxy
+            MathProxy proxy = new MathProxy();
+
+            // do the math
+            Console.WriteLine("4 + 2 = " + proxy.Add(4, 2));
+            Console.WriteLine("4 - 2 = " + proxy.Sub(4, 2));
+            Console.WriteLine("4 * 2 = " + proxy.Mul(4, 2));
+            Console.WriteLine("4 / 2 = " + proxy.Div(4, 2));
         }
     }
 }
