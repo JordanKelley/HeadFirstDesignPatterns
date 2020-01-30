@@ -10,6 +10,7 @@ using HeadFirstDesignPatterns.FacadePattern;
 using HeadFirstDesignPatterns.TemplatePattern;
 using HeadFirstDesignPatterns.IteratorPattern;
 using HeadFirstDesignPatterns.CompositePattern;
+using HeadFirstDesignPatterns.StatePattern;
 
 namespace HeadFirstDesignPatterns
 {
@@ -17,7 +18,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            CompositePattern();
+            StatePattern();
         }
 
         private static void StrategyPattern()
@@ -325,6 +326,20 @@ namespace HeadFirstDesignPatterns
             CompositePattern.Waitress waitress = new CompositePattern.Waitress(allMenus);
 
             waitress.printMenu();
+        }
+
+        private static void StatePattern()
+        {
+            GumballMachine gumballMachine = new GumballMachine(5);
+
+            Console.WriteLine(gumballMachine);
+
+            gumballMachine.insertQuarter();
+            gumballMachine.turnCrank();
+            gumballMachine.insertQuarter();
+            gumballMachine.turnCrank();
+
+            Console.WriteLine(gumballMachine);
         }
     }
 }
