@@ -12,6 +12,7 @@ using HeadFirstDesignPatterns.IteratorPattern;
 using HeadFirstDesignPatterns.CompositePattern;
 using HeadFirstDesignPatterns.StatePattern;
 using HeadFirstDesignPatterns.ProxyPattern;
+using HeadFirstDesignPatterns.CompoundPatterns;
 
 namespace HeadFirstDesignPatterns
 {
@@ -19,7 +20,7 @@ namespace HeadFirstDesignPatterns
     {
         static void Main(string[] args)
         {
-            ProxyPattern();
+            CompoundPattern();
         }
 
         private static void StrategyPattern()
@@ -353,6 +354,11 @@ namespace HeadFirstDesignPatterns
             Console.WriteLine("4 - 2 = " + proxy.Sub(4, 2));
             Console.WriteLine("4 * 2 = " + proxy.Mul(4, 2));
             Console.WriteLine("4 / 2 = " + proxy.Div(4, 2));
+        }
+
+        private static void CompoundPattern()
+        {
+            DuckSimulator duckSimulator = new DuckSimulator();
         }
     }
 }
